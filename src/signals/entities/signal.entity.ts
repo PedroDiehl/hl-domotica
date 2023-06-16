@@ -7,7 +7,10 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 export type DeviceDocument = HydratedDocument<Signal>;
 
 
-@Schema({ timestamps: true })
+@Schema({ timestamps: true, timeseries: {
+   timeField: 'timestamp',
+   metaField: 'metadata',
+} })
 export class Signal implements ISignal {
    @Prop({
       type: Object,

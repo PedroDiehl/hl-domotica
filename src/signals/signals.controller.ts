@@ -1,3 +1,4 @@
+import { SignalsService } from './signals.service';
 import { CreateSignalDto } from './dtos/create-signal.dto';
 import { 
    Body, 
@@ -8,6 +9,10 @@ import {
 
 @Controller('signals')
 export class SignalsController {
+
+   constructor(
+      private readonly signalsService: SignalsService,
+   ) {}
 
    @Post('create')
    createSignal(@Body(new ValidationPipe()) body: CreateSignalDto) {

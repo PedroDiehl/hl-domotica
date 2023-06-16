@@ -18,8 +18,6 @@ export class Signal implements ISignal {
    @Prop({
       type: Object,
       required: true,
-      unique: true,
-      trim: true,
    })
    metadata: {
       signalType: SignalTypes;

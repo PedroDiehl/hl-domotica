@@ -5,9 +5,11 @@ import { DatabaseModule } from './database/database.module';
 import { ConfigModule } from './config/config.module';
 import { SignalsModule } from './signals/signals.module';
 import { DevicesModule } from './devices/devices.module';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
-  imports: [DatabaseModule, ConfigModule, SignalsModule, DevicesModule],
+  imports: [DatabaseModule, ConfigModule, SignalsModule, DevicesModule, AuthModule, UsersModule],
   controllers: [AppController],
   providers: [AppService],
 })

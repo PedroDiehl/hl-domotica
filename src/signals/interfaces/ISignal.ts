@@ -1,3 +1,6 @@
 export interface ISignal {
-   signalId: string;
+   metadata: {
+      signalType: string;
+   };
+   timestamp: Date;
 }

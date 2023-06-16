@@ -33,7 +33,7 @@ export class AuthController {
          });
 
       } catch (error) { 
-         res.status(HttpStatus.UNAUTHORIZED).send('Invalid credentials');
+         res.status(HttpStatus.UNAUTHORIZED).send('Invalid credentials.');
       }
 
       return;

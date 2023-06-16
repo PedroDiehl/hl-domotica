@@ -2,8 +2,10 @@ import * as mongoose from 'mongoose';
 import { FactoryProvider } from '@nestjs/common';
 import { ConfigService } from '../config/config.service';
 
+
 // See https://mongoosejs.com/docs/guide.html#strictQuery
 mongoose.set('strictQuery', false);
+
 
 export const mongoDatabaseConnectionProvider: FactoryProvider = {
    provide: 'MONGODB_DATABASE_CONNECTION',

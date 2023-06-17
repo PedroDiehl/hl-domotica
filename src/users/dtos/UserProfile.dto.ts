@@ -1,9 +1,9 @@
-import { IsString } from "class-validator";
+import { IsEmail, IsString } from "class-validator";
 import { IUserProfile } from "../interfaces/IUserProfile";
 
 
 export class UserProfileDto implements Partial<IUserProfile> {
-   @IsString()
+   @IsEmail()
    email: string;
 
    @IsString()

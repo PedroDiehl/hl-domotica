@@ -7,5 +7,6 @@ export class CreateUserDto implements Partial<IUser> {
    @IsString()
    password: string;
 
+   // Validation is inside object
    profile: UserProfileDto;
 }

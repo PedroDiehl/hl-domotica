@@ -3,6 +3,7 @@ import { UsersService } from './users.service';
 import { Role } from '../auth/roles/enums/Role.enum';
 import { Roles } from '../auth/roles/roles.decorator';
 import { CreateUserDto } from './dtos/CreateUser.dto';
+import { UpdateUserDto } from './dtos/UpdateUser.dto';
 import { RolesGuard } from '../auth/roles/roles.guard';
 import { JwtAuthGuard } from '../auth/jwt/jwtAuthGuard';
 import { 
@@ -40,7 +41,20 @@ export class UsersController {
    }
 
    @Patch('update-user/:id')
-   async updateUser(@Param('id') userId: string) {}
+   async updateUser(
+      @Param('id') userId: string, 
+      @Body(new ValidationPipe()) body: UpdateUserDto, 
+      @Res() res: Response
+   ) {
+      const updatedUser = await this.usersService.updateUser(userId, body);
+
+      if (!updatedUser) {
+         res.status(HttpStatus.NOT_FOUND).send('No user updated.');
+         return;
+      }
+
+      res.status(HttpStatus.OK).send(updatedUser);
+   }
 
    @Patch('update-user-role/:id')
    async updateUserRole(@Param('id') userId: string, @Body() body: any, @Res() res: Response) {

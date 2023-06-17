@@ -6,7 +6,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 export type UserProfileDocument = HydratedDocument<UserProfile>;
 
 
-@Schema({ timestamps: true })
+@Schema({ _id: false })
 export class UserProfile implements IUserProfile {
    @Prop({
       type: String,

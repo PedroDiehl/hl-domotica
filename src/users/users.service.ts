@@ -1,5 +1,5 @@
-import { Model, ObjectId } from 'mongoose';
 import { Inject, Injectable } from '@nestjs/common';
+import { AnyObject, Model, ObjectId } from 'mongoose';
 import { UserDocument } from './entities/user.entity';
 import { CreateUserDto } from './dtos/CreateUser.dto';
 import { UpdateUserDto } from './dtos/UpdateUser.dto';
@@ -12,8 +12,8 @@ export class UsersService {
       private readonly usersSchema: Model<UserDocument>,
    ) {}
 
-   async createUser(user: CreateUserDto): Promise<UserDocument> {
-      const createdUser = new this.usersSchema(user);
+   async createUser(createUserDto: CreateUserDto): Promise<UserDocument> {
+      const createdUser = new this.usersSchema(createUserDto);
       return await createdUser.save();
    }
 
@@ -21,7 +21,7 @@ export class UsersService {
       const user = await this.findUserById(userId);
 
       // Needs to set nested objects separately
-      if (user.profile) {
+      if (fieldsToUpdate.profile) {
          Object.assign(user.profile, fieldsToUpdate.profile)
          delete fieldsToUpdate.profile;
       }
@@ -47,7 +47,7 @@ export class UsersService {
       return await this.usersSchema.findById(id);
    }
 
-   async findUserByEmail(email: string): Promise<UserDocument> {
-      return await this.usersSchema.findOne({ "profile.email": email });
+   async findUserByEmail(email: string, projection?: AnyObject): Promise<UserDocument> {
+      return await this.usersSchema.findOne({ "profile.email": email }, projection);
    }
 }

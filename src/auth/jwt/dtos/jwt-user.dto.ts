@@ -1,20 +1,11 @@
+import { ObjectId } from "mongoose";
+import { IjwtUser } from "../interfaces/IjwtUser";
 import { 
-   IsEmail, 
    IsMongoId, 
-   IsNumber, 
 } from "class-validator";
 
 
-export class jwtUserDto {
+export class jwtUserDto implements IjwtUser {
    @IsMongoId()
-   _id: string;
-
-   @IsEmail()
-   email: string;
-
-   @IsNumber()
-   iat: number;
-
-   @IsNumber()
-   exp: number;
+   _id: ObjectId;
 }

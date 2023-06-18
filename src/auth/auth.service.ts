@@ -1,8 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import { ObjectId } from 'mongoose';
 import { JwtService } from '@nestjs/jwt';
-import { User, UserDocument } from '../users/entities/user.entity';
+import { Injectable } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { CreateUserDto } from '../users/dtos/CreateUser.dto';
+import { User, UserDocument } from '../users/entities/user.entity';
+
 
 @Injectable()
 export class AuthService {
@@ -26,10 +28,8 @@ export class AuthService {
          throw new Error('Invalid credentials');
       }
 
-      const cleanUser = await this.usersService.findUserByEmail(email);
-
       return {
-         accessToken: this.jwtService.sign(cleanUser.toObject()), userId: user._id
+         accessToken: this.jwtService.sign(user.toObject()), userId: user._id
       };
    }
 
@@ -45,7 +45,7 @@ export class AuthService {
       });
    }
 
-   async validateUser(id: string) {
+   async validateUser(id: ObjectId) {
       return await this.usersService.findUserById(id);
    }
 }

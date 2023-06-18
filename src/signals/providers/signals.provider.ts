@@ -2,6 +2,7 @@ import { Connection } from 'mongoose';
 import { FactoryProvider } from '@nestjs/common';
 import { SignalSchema } from '../entities/signal.entity';
 
+
 export const SignalsProvider: FactoryProvider = {
    provide: 'SIGNALS_MODEL',
    useFactory: (connection: Connection) => connection.model('Signal', SignalSchema),

@@ -1,3 +1,3 @@
-export enum SignalTypes {
+export enum SignalType {
    LOCATION = 'LOCATION',
 }

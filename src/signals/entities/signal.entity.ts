@@ -1,6 +1,6 @@
 import { HydratedDocument } from 'mongoose';
 import { ISignal } from '../interfaces/ISignal';
-import { SignalTypes } from '../enums/SignalTypes.enum';
+import { SignalType } from '../enums/SignalType.enum';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
 
@@ -20,7 +20,7 @@ export class Signal implements ISignal {
       required: true,
    })
    metadata: {
-      signalType: SignalTypes;
+      signalType: SignalType;
    };
 
    @Prop({

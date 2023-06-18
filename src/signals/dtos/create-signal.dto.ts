@@ -1,8 +1,8 @@
 import { IsEnum } from "class-validator";
-import { SignalTypes } from "../enums/SignalTypes.enum";
+import { SignalType } from "../enums/SignalType.enum";
 
 
 export class CreateSignalDto {
-   @IsEnum(SignalTypes)
-   signalType: SignalTypes;
+   @IsEnum(SignalType)
+   signalType: SignalType;
 }

@@ -1,10 +1,8 @@
 import type { Response } from 'express';
 import { AuthService } from './auth.service';
-import { AuthTokenDto } from './dtos/authToken.dto';
 import { AuthSignInDto } from './dtos/authSignIn.dto';
 import { ConfigService } from '../config/config.service';
 import { CreateUserDto } from '../users/dtos/CreateUser.dto';
-import { UserDocument } from '../users/entities/user.entity';
 import { 
    Body,
    Controller, 

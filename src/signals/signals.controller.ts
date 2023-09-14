@@ -1,5 +1,5 @@
 import { SignalsService } from './signals.service';
-import { Role } from '../auth/roles/enums/role.enum';
+import { Role } from '../auth/roles/enums/Role.enum';
 import { Roles } from '../auth/roles/roles.decorator';
 import { RolesGuard } from '../auth/roles/roles.guard';
 import { JwtAuthGuard } from '../auth/jwt/jwtAuthGuard';

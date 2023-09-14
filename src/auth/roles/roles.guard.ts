@@ -1,5 +1,5 @@
 import { Reflector } from '@nestjs/core';
-import { Role } from './enums/role.enum';
+import { Role } from './enums/Role.enum';
 import { ROLES_KEY } from './roles.decorator';
 import { RolePriority } from './RolePriority';
 import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';

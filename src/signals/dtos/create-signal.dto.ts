@@ -1,8 +1,10 @@
-import { IsEnum } from "class-validator";
-import { SignalType } from "../enums/SignalType.enum";
+import { IsNumber } from "class-validator";
 
 
 export class CreateSignalDto {
-   @IsEnum(SignalType)
-   signalType: SignalType;
+   @IsNumber()
+   latitude: number;
+
+   @IsNumber()
+   longitude: number;
 }

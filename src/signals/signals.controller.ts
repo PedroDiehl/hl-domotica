@@ -17,15 +17,13 @@ import {
 @Roles(Role.SUPER)
 @Controller('signals')
 export class SignalsController {
-
    constructor(
       private readonly signalsService: SignalsService,
    ) {}
 
    @Post('create')
-   createSignal(@Body(new ValidationPipe()) body: CreateSignalDto) {
-      console.log(body);
-      return;
+   async createSignal(@Body(new ValidationPipe()) body: CreateSignalDto) {
+      return await this.signalsService.createSignal(body);
    }
 
 }

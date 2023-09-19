@@ -1,6 +1,8 @@
+import { SignalType } from "../enums/SignalType.enum";
+
+
 export interface ISignal {
-   metadata: {
-      signalType: string;
-   };
-   timestamp: Date;
+   signalType: SignalType;
+   type: string;
+   coordinates: number[];
 }

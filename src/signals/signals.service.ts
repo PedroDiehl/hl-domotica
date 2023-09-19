@@ -17,6 +17,9 @@ export class SignalsService {
    async createSignal(createSignalDto: CreateSignalDto) {
       const formattedSignalData = this.formatCoordinates(createSignalDto);
       const signal = new this.signalsSchema(formattedSignalData);
+
+      console.log('signal', signal);
+
       return await signal.save();
    }
 

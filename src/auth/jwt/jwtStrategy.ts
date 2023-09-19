@@ -1,5 +1,4 @@
 import { AuthService } from '../auth.service';
-import { jwtUserDto } from './dtos/jwt-user.dto';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { PassportStrategy } from '@nestjs/passport';
 import { User } from '../../users/entities/user.entity';
@@ -27,7 +26,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     * @param payload - The JWT's user data payload. (Decoded JSON)
     * @returns the user object if the user exists in the database.
     */
-   async validate(payload: jwtUserDto): Promise<User> {
+   async validate(payload: any): Promise<User> {
       const user: User = await this.authService.validateUser(payload._id);
 
       if (!user) {

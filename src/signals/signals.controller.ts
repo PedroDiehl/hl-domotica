@@ -14,7 +14,7 @@ import {
 
 
 @UseGuards(JwtAuthGuard, RolesGuard)
-@Roles(Role.SUPER)
+@Roles(Role.USER)
 @Controller('signals')
 export class SignalsController {
    constructor(

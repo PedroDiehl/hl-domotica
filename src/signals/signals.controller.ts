@@ -23,7 +23,7 @@ export class SignalsController {
 
    @Post('create')
    async createSignal(@Body(new ValidationPipe()) body: CreateSignalDto) {
+      console.log("REQUEST AUTHORIZED");
       return await this.signalsService.createSignal(body);
    }
-
 }
